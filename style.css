@@ -1,0 +1,387 @@
+/* === VARIÁVEIS DE COR (Fácil Customização) === */
+:root {
+    --bg-dark: #121212;
+    --bg-section: #1a1a1a;
+    --bg-card: #2a2a2a;
+    --text-main: #ffffff;
+    --text-muted: #b3b3b3;
+    --accent-color: #00d2ff; /* Azul Neon da Nexus TV */
+    --whatsapp-green: #25D366;
+    --whatsapp-hover: #1ebe57;
+    --border-color: #444;
+}
+
+/* === RESET BÁSICO === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* === CABEÇALHO === */
+header {
+    padding: 20px 50px;
+    border-bottom: 1px solid #333;
+    background-color: rgba(18, 18, 18, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Transformamos o h1 em um flexbox para alinhar a imagem e o texto */
+header h1 {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center; /* Centraliza a logo e o texto na vertical */
+    gap: 15px; /* Espaço entre a logo e a escrita "Nexus TV" */
+}
+
+/* Controle de tamanho da logo */
+.logo {
+    height: 60px; /* Ajuste este valor se a logo ficar muito grande ou pequena */
+    width: auto; /* Mantém a proporção correta da imagem */
+    object-fit: contain;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+/* === DOBRA PRINCIPAL (HERO) === */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 50px;
+    gap: 40px;
+    min-height: 70vh;
+    /* MÁGICA DA IMAGEM DE FUNDO AQUI */
+    background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.95)), 
+                url('moc.avif');
+    background-size: cover; /* Faz a imagem preencher todo o espaço */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem fique se repetindo */
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+/* Área da direita (Efeito Vidro Fosco / Glassmorphism) */
+.hero-media {
+    flex: 1;
+    max-width: 400px; /* Impede que a caixa fique muito larga em telas grandes */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+    /* Reduzimos o padding (espaço interno) de 50px para 35px */
+    padding: 35px 30px; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Reduzimos um pouco o espaço entre os botões */
+    
+    /* O min-height: 400px; foi removido! Agora a altura se adapta aos botões */
+}
+
+/* === BOTÕES GERAIS === */
+.btn {
+    display: block; /* <--- A LINHA MÁGICA QUE CORRIGE O BUG */
+    padding: 15px 20px; /* Reduzi um pouco as laterais para o texto ter mais espaço */
+    font-size: 1rem; /* Tamanho da fonte ajustado */
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%; /* Largura padronizada direto no CSS */
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-sizing: border-box; /* Garante que o botão não vaze para fora do card */
+}
+
+.btn-primary {
+    background-color: var(--whatsapp-green);
+    color: white;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-primary:hover { 
+    background-color: var(--whatsapp-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+    transform: translateY(-2px);
+}
+
+/* === SEÇÃO DE PLANOS === */
+.planos {
+    padding: 100px 50px;
+    text-align: center;
+    background-color: var(--bg-section);
+}
+
+.planos h3 {
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    color: var(--text-main);
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 40px 30px;
+    border-radius: 12px;
+    width: 300px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: #666;
+}
+
+/* Plano Central em Destaque */
+.card.destaque {
+    transform: scale(1.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.15);
+    z-index: 2;
+    background: linear-gradient(145deg, #2a2a2a, #222);
+}
+
+.card.destaque:hover {
+    transform: scale(1.12);
+}
+
+.card h4 { 
+    font-size: 1.6rem; 
+    margin-bottom: 15px; 
+    color: var(--text-muted);
+}
+
+.card .preco { 
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    margin-bottom: 25px; 
+    color: var(--text-main);
+}
+
+/* === AVALIAÇÕES (PRINTS) === */
+.avaliacoes {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.avaliacoes h3 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.estrelas {
+    color: #FFD700;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    letter-spacing: 5px;
+}
+
+.prints-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.print-box {
+    width: 220px;
+    height: 400px;
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.print-box:hover {
+    transform: translateY(-5px);
+}
+
+/* === BOTÃO FLUTUANTE DO WHATSAPP === */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp-green);
+    color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    text-decoration: none;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: var(--whatsapp-hover);
+}
+
+/* === RESPONSIVIDADE (CELULARES E TABLETS) === */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 30px;
+    }
+    
+    .hero-text p {
+        margin: 0 auto 30px auto;
+    }
+
+    .hero-media {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .card.destaque {
+        transform: scale(1); /* Remove o zoom exagerado no mobile */
+    }
+
+    .card.destaque:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 480px) {
+    header { padding: 15px 20px; text-align: center; }
+    .planos, .avaliacoes { padding: 60px 20px; }
+    .hero-text h2 { font-size: 2.5rem; }
+}
+
+/* === NOVOS ELEMENTOS DOS CARDS === */
+.preco-mes {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: -20px;
+    margin-bottom: 25px;
+}
+
+.beneficios {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.beneficios li {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    color: #e0e0e0;
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Adiciona um checkmark (✓) antes de cada benefício */
+.beneficios li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.card.destaque .beneficios li::before {
+    color: #ffd700; /* Checkmark dourado no plano destaque */
+}
+
+/* Etiqueta de Destaque (Badge) */
+.card {
+    position: relative; /* Necessário para posicionar o badge */
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, #ffd700, #ffa500);
+    color: #121212;
+    padding: 6px 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
